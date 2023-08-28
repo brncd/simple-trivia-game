@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Trivia Game
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-link active" href="{{ url_for('index') }}">Trivia</a>
+<a class="nav-link" href="{{ url_for('about') }}">About me</a>
+<a class="nav-link" href="https://github.com/brncd/simple-trivia-game" target="_blank">View code</a>
+{% endblock %}
+
+{% block main %}
+<h1>Welcome to the Trivia Game!</h1>
+<p>Test your knowledge by playing this trivia game.</p>
+<form action="{{ url_for('play_game') }}" method="POST">
+    <button type="start">Start Game</button>
+</form>
+{% endblock %}

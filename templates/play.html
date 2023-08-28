@@ -1,0 +1,27 @@
+{% extends "layout.html" %} {% block head %} {{ super() }}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %} {% block main %}
+<div class="info-container">
+    <div class="answer-count">
+        Correct answers: <b>{{ correct_count }}/{{ answer_count }}</b>
+    </div>
+    {% if result == "Incorrect" %}
+    <div class="incorrect_result">{{ result }}</div>
+    <div class="correct-answer">
+        The correct answer was: {{ session['last_correct_answer'] }}
+    </div>
+    {% endif %} {% if result == "Correct" %}
+    <div class="correct_result">{{ result }}</div>
+    {% endif %}
+</div>
+<div class="content">
+    <div class="question">{{ question }}</div>
+    <form method="post">
+        {% for answer in answers %}
+        <button class="answer-button" type="answer" name="answer" value="{{ answer }}">
+            {{ answer }}
+        </button>
+        {% endfor %}
+    </form>
+</div>
+{% endblock %}

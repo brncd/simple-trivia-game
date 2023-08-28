@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+About Me
+{% endblock %}
+
+{% block navbar %}
+<a class="nav-link" href="{{ url_for('index') }}">Trivia</a>
+<a class="nav-link active" href="{{ url_for('about') }}">About me</a>
+<a class="nav-link" href="https://github.com/brncd/simple-trivia-game" target="_blank">View code</a>
+{% endblock %}
+
+{% block main %}
+<h1>About Me</h1>
+<img class="profile-image"
+    src="https://avatars.githubusercontent.com/u/37399964?s=400&u=152587d5837f92469211fd41b174df9460f1b347&v=4">
+<p>My name is Bruno. I am a programming enthusiast, intrigued by Web technologies. I am on a learning journey, exploring
+    these technologies to create meaningful solutions.</p>
+<div class="contact">
+    <p>Feel free to contact me:</p>
+    <ul class="contact-list">
+        <li><a class="contact-link" href="https://www.linkedin.com/in/brunocarnales/" target="_blank"><i
+                    class="fab fa-linkedin icon"></i><u>LinkedIn</u></a></li>
+        <li><a class="contact-link" href="malito:brunocarnales@gmail.com">
+                <i class="fas fa-envelope icon"></i><u>Email</u></a></li>
+    </ul>
+</div>
+<p>Check out my other projects in <a class="link" href="https://brncd.github.io" target="_blank">brncd.github.io</a></p>
+{% endblock %}

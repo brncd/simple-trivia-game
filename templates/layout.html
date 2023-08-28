@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Trivia Game{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar">
+        {% block navbar %}
+        <a class="nav-link active" href="play">Trivia</a>
+        <a class="nav-link" href="about">About me</a>
+        <a class="nav-link" href="https://github.com/brncd/simple-trivia-game" target="_blank">View code</a>
+        {% endblock %}
+    </nav>
+    <div class="container">{% block main %} {% endblock %}</div>
+    <footer class="footer">
+        {% block footer %}
+        <div class="footer-text">
+            <p>
+                Created by
+                <a href="https://github.com/brncd" target="_blank"><i class="fab fa-github"></i>brncd</a>
+            </p>
+        </div>
+        {% endblock %}
+    </footer>
+</body>
+
+</html>
