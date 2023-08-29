@@ -14,7 +14,7 @@ The Trivia Game App is a web application where users can enjoy playing trivia by
 
 ## Usage
 
-Play the Trivia Game now: [Trivia Game App](https://brncd.github.io/simple-trivia-game/)
+Play the Trivia Game now: [Trivia Game App](https://trivia.brncd.me/)
 
 ## Dependencies
 
