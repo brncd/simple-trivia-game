@@ -24,5 +24,3 @@ jobs:
         run: |
           cd /home/ec2-user/actions-runner/trivia_work/simple-trivia-game/simple-trivia-game          # Ejecuta tu aplicación en el puerto 8000 o el puerto que necesites
           python3.10 app.py
-        ports:
-          - 8000:8000
