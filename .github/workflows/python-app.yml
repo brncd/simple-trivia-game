@@ -2,9 +2,9 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
@@ -14,17 +14,16 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-    - name: Use Python 3.10
-      run: |
-        echo '/usr/local/bin/python3.10' | sudo tee -a /etc/environment
-        echo 'export PATH=$PATH:/usr/local/bin' | sudo tee -a /etc/environment
-      if: matrix.python-version == '3.10'
+      - name: Use Python 3.10
+        run: |
+          echo '/usr/local/bin/python3.10' | sudo tee -a /etc/environment
+          echo 'export PATH=$PATH:/usr/local/bin' | sudo tee -a /etc/environment
+        if: matrix.python-version == '3.10'
 
-    - name: Install Python 3.10 dependencies
-      run: |
-        python3.10 -m pip install --upgrade pip
-        pip3.10 install flake8 pytest
-        if [ -f requirements.txt ]; then pip3.10 install -r requirements.txt; fi
-
+      - name: Install Python 3.10 dependencies
+        run: |
+          python3.10 -m pip install --upgrade pip
+          pip3.10 install flake8 pytest
+          if [ -f requirements.txt ]; then pip3.10 install -r requirements.txt; fi

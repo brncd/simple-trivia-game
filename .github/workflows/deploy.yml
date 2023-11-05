@@ -1,0 +1,28 @@
+name: Deploy to Production
+
+on:
+  workflow_run:
+    workflows: ["Python Application"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set Up Python 3.10
+        run: |
+          echo '/usr/local/bin/python3.10' | sudo tee -a /etc/environment
+          echo 'export PATH=$PATH:/usr/local/bin' | sudo tee -a /etc/environment
+        if: matrix.python-version == '3.10'
+
+      - name: Run Flask App
+        run: |
+          cd /home/ec2-user/actions-runner/trivia_work/simple-trivia-game/simple-trivia-game          # Ejecuta tu aplicación en el puerto 8000 o el puerto que necesites
+          python3.10 app.py
+        ports:
+          - 8000:8000
